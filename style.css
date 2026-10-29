@@ -861,3 +861,28 @@ nav a:focus-visible,
   align-items: center;
   gap: 10px;
 }
+
+/* =========================================================
+   FOOTER UVIJEK NA DNU EKRANA
+   Na kratkoj stranici (ili velikom monitoru) sadržaj završi prije dna
+   ekrana, pa ispod footera ostane bijela praznina.
+   Rješenje: body je flex stupac visok barem cijeli ekran (100vh),
+   a main "upije" sav višak prostora (flex: 1), pa footer gurne dolje.
+   ========================================================= */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+body {
+  min-height: 100vh;      /* stranica je visoka barem koliko i ekran */
+  display: flex;
+  flex-direction: column; /* header, main i footer jedan ispod drugoga */
+}
+main {
+  flex: 1;                /* main "upije" sav višak prostora i gurne footer na dno */
+}
