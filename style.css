@@ -1,3 +1,33 @@
+/* =========================================================
+   FONTOVI: učitavaju se s naše stranice (mapa fonts/), ne s Googlea
+   - brže: nema odlaska na tuđi server
+   - privatnije: Google ne dobiva IP adrese posjetitelja
+   - font-display: swap = tekst se odmah prikaže sistemskim fontom,
+     a zamijeni se ovim fontom čim se učita (nema praznog ekrana)
+   - latin_latin-ext = i naša slova č, ć, š, ž, đ
+   ========================================================= */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/inter-v20-latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/inter-v20-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/lexend-v26-latin_latin-ext-700.woff2") format("woff2");
+}
+
 :root {
   /* boje */
   --limeta: #00e676; /* SAMO gumbi, ikone, naglasci na tamnom */
