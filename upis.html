@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upis – Zeleni Val, autoškola, Rijeka</title>
+    <meta
+      name="description"
+      content="Online upis u autoškolu Zeleni Val, Rijeka: B kategorija i motor. Ispuni prijavu, a mi te nazovemo."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+    <!-- favicon: ikona u kartici preglednika -->
+    <link rel="icon" href="slike/zeleni-val-znak.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"><img src="slike/zeleni-val-znak.svg" alt="" width="36" height="36"> Zeleni Val</a>
+      <nav>
+        <button
+          class="hamburger"
+          aria-label="Otvori izbornik"
+          aria-expanded="false"
+          aria-controls="izbornik"
+        >
+          ☰
+        </button>
+      <ul id="izbornik">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="cijene.html">Cijene</a></li>
+          <li><a href="instruktori.html">Instruktori i vozila</a></li>
+           <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="upis.html" class="btn" aria-current="page">Upiši se</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- MALI HERO -->
+      <section class="hero hero-mala">
+        <p class="oznaka">Nova grupa kreće 2. 12. 2026.</p>
+        <h1>Upiši se</h1>
+        <p class="hero-tekst">Ispuni prijavu za 2 minute. Nazvat ćemo te u roku od jednog radnog dana i dogovoriti sve detalje. Ništa se ne plaća online.</p>
+      </section>
+
+      <!-- OBRAZAC + KUTIJA SA STRANE -->
+      <section class="upis">
+
+        <!-- Formspree: zamijeni PRIMJER ID-om svog obrasca -->
+        <form class="obrazac" action="https://formspree.io/f/PRIMJER" method="POST">
+          <input type="hidden" name="_subject" value="Nova prijava za upis – Zeleni Val">
+
+          <label for="ime">Ime i prezime</label>
+          <input type="text" id="ime" name="ime" autocomplete="name" required>
+
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="telefon" autocomplete="tel" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+
+          <!-- kategorija: radio gumbi, jer se bira točno jedna -->
+          <fieldset class="izbor">
+            <legend>Kategorija</legend>
+            <label><input type="radio" name="kategorija" value="B kategorija" required> B kategorija (auto)</label>
+            <label><input type="radio" name="kategorija" value="Motor A2"> Motor (A2)</label>
+          </fieldset>
+
+          <label for="poruka">Poruka <span class="neobavezno">(nije obavezno)</span></label>
+          <textarea id="poruka" name="poruka" rows="3" placeholder="npr. najbolje me zvati poslijepodne"></textarea>
+
+          <!-- privola: obavezna jer skupljamo osobne podatke -->
+          <label class="privola">
+            <input type="checkbox" name="privola" value="da" required>
+            <span>Pristajem da Zeleni Val koristi moje podatke samo za obradu ove prijave, u skladu s <a href="privatnost.html">Politikom privatnosti</a>. Ako sam mlađi od 18 godina, roditelj ili skrbnik zna za prijavu.</span>
+          </label>
+
+          <!-- zamka za spam-botove: ljudi ovo polje ne vide -->
+          <input type="text" name="_gotcha" class="skriveno" tabindex="-1" autocomplete="off">
+
+          <button type="submit" class="btn">Pošalji prijavu</button>
+        </form>
+
+        <!-- KUTIJA: što se događa nakon slanja (smiruje roditelje) -->
+        <aside class="sto-slijedi">
+          <h2>Što slijedi nakon prijave?</h2>
+          <ol>
+            <li><strong>Zovemo te</strong> u roku od jednog radnog dana.</li>
+            <li><strong>Dogovorimo</strong> termin teorije i način plaćanja (može na rate).</li>
+            <li><strong>Krećeš</strong> s novom grupom 2. 12.</li>
+          </ol>
+          <p>Radije bi nazvao? <a href="tel:+38551123456">051 123 456</a></p>
+        </aside>
+
+      </section>
+    </main>
+
+    <footer class="podnozje">
+  <div class="podnozje-stupci">
+
+    <!-- 1. stupac: tko smo -->
+    <div>
+      <p class="podnozje-logo"><img src="slike/zeleni-val-znak.svg" alt="" width="32" height="32"> Zeleni Val</p>
+      <p>Autoškola u Rijeci za B kategoriju i motor. Jasna cijena, plaćanje na rate, nova grupa svaki mjesec.</p>
+    </div>
+
+    <!-- 2. stupac: kontakt (svi linkovi klikabilni na mobitelu) -->
+    <div>
+      <h2>Kontakt</h2>
+      <p><a href="tel:+38551123456">051 123 456</a></p>
+      <p><a href="https://wa.me/38551123456">WhatsApp</a></p>
+      <p><a href="mailto:info@zelenival.hr">info@zelenival.hr</a></p>
+    </div>
+
+    <!-- 3. stupac: gdje i kada -->
+    <div>
+      <h2>Ured</h2>
+      <p>Zagrebačka 10<br>51000 Rijeka</p>
+      <p>Pon–pet: 9:00–17:00 h</p>
+    </div>
+
+    <!-- 4. stupac: linkovi -->
+    <div>
+      <h2>Stranice</h2>
+      <ul>
+        <li><a href="cijene.html">Cijene</a></li>
+        <li><a href="instruktori.html">Instruktori i vozila</a></li>
+        <li><a href="upis.html">Upiši se</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="privatnost.html">Politika privatnosti</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- donji red: podaci o tvrtki -->
+  <p class="podnozje-dno">© 2026 Autoškola Zeleni Val · vl. Dario Perić · OIB: 12345678901</p>
+</footer>
+    <script src="script.js"></script>
+  </body>
+</html>

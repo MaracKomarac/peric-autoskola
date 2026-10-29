@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instruktori i vozila – Zeleni Val, autoškola, Rijeka</title>
+    <meta
+      name="description"
+      content="Upoznajte naše stručne instruktore za vožnju automobila i motora u Zelenom Valu, Rijeci."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+    <!-- favicon: ikona u kartici preglednika -->
+    <link rel="icon" href="slike/zeleni-val-znak.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"><img src="slike/zeleni-val-znak.svg" alt="" width="36" height="36"> Zeleni Val</a>
+      <nav>
+        <button
+          class="hamburger"
+          aria-label="Otvori izbornik"
+          aria-expanded="false"
+          aria-controls="izbornik"
+        >
+          ☰
+        </button>
+      <ul id="izbornik">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="cijene.html">Cijene</a></li>
+          <li><a href="instruktori.html" aria-current="page">Instruktori i vozila</a></li>
+           <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="upis.html" class="btn">Upiši se</a></li>
+        </ul>
+      </nav>
+    </header>
+   
+<main>
+  <!-- MALI HERO -->
+  <section class="hero hero-mala">
+    <p class="oznaka">Naš tim</p>
+    <h1>Instruktori i vozila</h1>
+    <p class="hero-tekst">Mirni, strpljivi i iskusni instruktori, uz uredna i sigurna vozila. <br> Upoznajte naš tim.</p>
+  </section>
+
+  <!-- INSTRUKTORI: 4 kartice s fotografijom -->
+  <section class="tim">
+    <h2>Instruktori</h2>
+    <div class="mreza">
+      <article class="osoba">
+        <img src="slike/instruktor-1.webp" alt="Instruktor Dario Perić, nasmiješen" width="800" height="1352">
+        <h3>Dario Perić</h3>
+        <p class="uloga">Vlasnik i instruktor · B i motor</p>
+        <p>20 godina iskustva. Specijalnost: kandidati koji se boje vožnje.</p>
+      </article>
+
+      <article class="osoba">
+        <img src="slike/instruktor-3.webp" alt="Instruktorica Lota Kovač" width="800" height="1200">
+        <h3>Lota Kovač</h3>
+        <p class="uloga">Instruktorica · B kategorija</p>
+        <p>Mirna i strpljiva, s mladima radi 8 godina.</p>
+      </article>
+
+      <article class="osoba">
+        <img src="slike/instruktor-2.webp" alt="Instruktor Adrian Horvat" width="800" height="1200">
+        <h3>Adrian Horvat</h3>
+        <p class="uloga">Instruktor · B kategorija</p>
+        <p>Bivši vozač hitne pomoći. Najbolji u gradskoj vožnji.</p>
+      </article>
+
+      <article class="osoba">
+        <img src="slike/instruktor-4.webp" alt="Instruktorica Lidija Prugovečki" width="800" height="1000">
+        <h3>Lidija Prugovečki</h3>
+        <p class="uloga">Instruktorica · motor (A2)</p>
+        <p>Motoristica 15 godina. Poligon i vožnja u prometu.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- VOZILA: 3 fotografije s opisom -->
+  <section class="vozila">
+    <h2>Vozni park</h2>
+    <div class="mreza">
+      <figure>
+        <img src="slike/auto-1.webp" alt="Bijeli automobil autoškole Zeleni Val" width="800" height="533" loading="lazy">
+        <figcaption>Auto za B kategoriju · ručni mjenjač</figcaption>
+      </figure>
+      <figure>
+        <img src="slike/auto-2.webp" alt="Drugi automobil autoškole Zeleni Val" width="800" height="640" loading="lazy">
+        <figcaption>Auto za B kategoriju · ručni mjenjač</figcaption>
+      </figure>
+      <figure>
+        <img src="slike/motor.webp" alt="Motor za obuku kategorije A2" width="800" height="533" loading="lazy">
+        <figcaption>Motor za kategoriju A2</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+
+   <footer class="podnozje">
+  <div class="podnozje-stupci">
+
+    <!-- 1. stupac: tko smo -->
+    <div>
+      <p class="podnozje-logo"><img src="slike/zeleni-val-znak.svg" alt="" width="32" height="32"> Zeleni Val</p>
+      <p>Autoškola u Rijeci za B kategoriju i motor. Jasna cijena, plaćanje na rate, nova grupa svaki mjesec.</p>
+    </div>
+
+    <!-- 2. stupac: kontakt (svi linkovi klikabilni na mobitelu) -->
+    <div>
+      <h2>Kontakt</h2>
+      <p><a href="tel:+38551123456">051 123 456</a></p>
+      <p><a href="https://wa.me/38551123456">WhatsApp</a></p>
+      <p><a href="mailto:info@zelenival.hr">info@zelenival.hr</a></p>
+    </div>
+
+    <!-- 3. stupac: gdje i kada -->
+    <div>
+      <h2>Ured</h2>
+      <p>Zagrebačka 10<br>51000 Rijeka</p>
+      <p>Pon–pet: 9:00–17:00 h</p>
+    </div>
+
+    <!-- 4. stupac: linkovi -->
+    <div>
+      <h2>Stranice</h2>
+      <ul>
+        <li><a href="cijene.html">Cijene</a></li>
+        <li><a href="instruktori.html">Instruktori i vozila</a></li>
+        <li><a href="upis.html">Upiši se</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="privatnost.html">Politika privatnosti</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- donji red: podaci o tvrtki -->
+  <p class="podnozje-dno">© 2026 Autoškola Zeleni Val · vl. Dario Perić · OIB: 12345678901</p>
+</footer>
+    <script src="script.js"></script>
+  </body>
+</html>

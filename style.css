@@ -1,0 +1,833 @@
+:root {
+  /* boje */
+  --limeta: #00e676; /* SAMO gumbi, ikone, naglasci na tamnom */
+  --limeta-tamna: #007a4d; /* zeleni linkovi i tekst na bijelom */
+  --asfalt: #1a2332; /* tekst, tamne sekcije, header na mobitelu */
+  --siva: #5b6675; /* sporedni tekst */
+  --svijetla: #f4f7f9; /* svijetle pozadine sekcija */
+  --linija: #e1e6eb;
+  --bijela: #ffffff;
+
+  /* fontovi */
+  --font-naslov: "Lexend", system-ui, sans-serif;
+  --font-tekst: "Inter", system-ui, sans-serif;
+
+  /* raspored */
+  --sirina: 1100px;
+  --radius: 12px;
+}
+
+/* box-sizing: border-box = padding i obrub se uračunavaju U širinu elementa.
+   Bez toga je sekcija od 1100 px s paddingom 16 px zapravo široka 1132 px
+   i sadržaj se ne poravna s logom. Ovo ide na početak SVAKOG projekta. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-tekst);
+  color: var(--asfalt);
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-naslov);
+}
+
+.btn {
+  background-color: var(--limeta);
+  color: var(--asfalt);
+  border-radius: var(--radius);
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+a {
+  color: var(--limeta-tamna);
+}
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem max(16px, calc((100% - 1100px) / 2 + 16px));
+    background: var(--asfalt); 
+}
+
+/* logo: znak (slika) i ime (tekst) u istom redu */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--bijela);
+}
+.logo img,
+.podnozje-logo img {
+  display: block;                      /* makni razmak ispod slike */
+  border-radius: 25%;                  /* isti zaobljeni kutovi kao znak */
+  box-shadow: 0 0 0 1.5px #3a4a60;     /* tanki svijetli rub: znak se ne stapa s tamnim headerom */
+}
+
+nav { display: flex; gap: 1rem; align-items: center; }
+nav a { text-decoration: none; color: var(--bijela); }
+nav a:hover { color: var(--limeta); }
+
+/* gumb "Upiši se" u izborniku: tamni tekst na limeti (i na hover) */
+nav a.btn,
+nav a.btn:hover { color: var(--asfalt); }
+
+/* trenutna stranica u izborniku (ali ne gumb "Upiši se": on je već istaknut) */
+nav a[aria-current="page"]:not(.btn) {
+  font-weight: 700;
+  border-bottom: 2px solid var(--limeta);
+}
+
+/* izbornik: na računalu linkovi u jednom redu */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* na računalu se gumb ☰ ne prikazuje */
+.hamburger {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--bijela);
+}
+
+/* mobitel: zaslon uži od 700px */
+@media (max-width: 700px) {
+  .hamburger { display: block; }
+
+  nav ul {
+    display: none;            /* linkovi su skriveni */
+    flex-direction: column;   /* jedan ispod drugoga */
+    align-items: flex-start;
+    position: absolute;       /* ispod headera, preko cijele širine */
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem 16px;
+    background: var(--asfalt);
+  }
+
+  nav ul.otvoren { display: flex; }  /* prikažu se kad JS doda klasu */
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--svijetla);
+  /* isti trik kao header: lijevi rub teksta = lijevi rub loga */
+  padding: 64px max(16px, calc((100% - var(--sirina)) / 2 + 16px));
+}
+
+.oznaka {
+  margin: 0 0 16px;
+  font-size: 0.8125rem;          /* 13 px */
+  font-weight: 600;
+  letter-spacing: 0.08em;        /* malo razmaknuta slova */
+  text-transform: uppercase;     /* CSS radi velika slova */
+  color: var(--limeta-tamna);    /* na svijetlom: tamna zelena, NE limeta */
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2.25rem, 6vw, 4rem);  /* min. 36 px, max. 64 px */
+  line-height: 1.1;                      /* veliki naslovi trebaju zbijeniji prored */
+}
+.podnaslov {
+  margin: 0 0 16px;
+  font-family: var(--font-naslov);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+}
+.hero-tekst {
+  margin: 0 0 32px;
+  max-width: 55ch;               /* ugodna duljina retka */
+  font-size: 1.125rem;
+  color: var(--siva);
+}
+
+.hero-gumbi {
+  display: flex;
+  flex-wrap: wrap;               /* na uskom ekranu drugi gumb ide u novi red */
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.hero .btn {
+  padding: 14px 28px;            /* u heroju veći gumbi */
+  font-size: 1.0625rem;
+}
+/* sekundarni gumb: tamni obrub na svijetloj podlozi */
+.btn-obrub {
+  background: transparent;
+  color: var(--asfalt);
+  border: 2px solid var(--asfalt);
+}
+.btn-obrub:hover {
+  background: var(--asfalt);
+  color: var(--bijela);
+}
+
+.prednosti {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;        /* mobitel: jedna ispod druge */
+  gap: 8px;
+}
+.prednosti li::before {
+  content: "✓";
+  margin-right: 8px;
+  font-weight: 700;
+  color: var(--limeta-tamna);
+}
+
+/* računalo: kvačice u jednom redu */
+@media (min-width: 701px) {
+  .prednosti {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+/* =========================================================
+   STRANICA CIJENE
+   ========================================================= */
+
+/* ----- 1. Mali hero (podstranice) -----
+   Klasa "hero" već daje svijetlu pozadinu i poravnanje s logom.
+   "hero-mala" samo smanjuje visinu i naslov, jer podstranica
+   ne treba ogroman uvod kao Početna. */
+main .hero-mala {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.hero-mala h1 {
+  font-size: clamp(2rem, 4vw, 3rem);   /* min. 32 px, max. 48 px */
+}
+.hero-mala .hero-tekst {
+  margin-bottom: 0;                    /* nema gumba ispod, pa ni razmaka */
+}
+
+/* ----- 2. Sekcije ispod heroja: ista širina i poravnanje -----
+   Bez ovoga bi kartice i tablica išle od ruba do ruba ekrana.
+   max-width = širina sadržaja, margin auto = centrirano,
+   padding 16px = isti razmak od ruba kao logo i hero. */
+.paketi,
+.dodatno,
+.rate-info {
+  max-width: var(--sirina);
+  margin: 0 auto;
+  padding: 48px 16px 0;
+}
+.rate-info {
+  padding-bottom: 64px;                /* zadnja sekcija: razmak prije footera */
+}
+
+/* ----- 3. Mreža kartica -----
+   auto-fit + minmax: stane li više kartica od 280 px u red,
+   stavi ih jednu pored druge; ako ne stane (mobitel), jednu ispod druge.
+   Zato ne treba media query. */
+.kartice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ----- 4. Jedna kartica -----
+   flex + column: sadržaj ide odozgo prema dolje.
+   Tako možemo gumb "zalijepiti" na dno (vidi .kartica .btn). */
+.kartica {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: var(--bijela);
+  border: 1px solid var(--linija);
+  border-radius: var(--radius);
+}
+.kartica h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+/* Istaknuta kartica (B kategorija): deblji zeleni obrub.
+   Tamna zelena, jer je obrub na bijelom (pravilo kontrasta). */
+.istaknuta {
+  border: 3px solid var(--limeta-tamna);
+}
+
+/* ----- 5. Cijena i rate -----
+   Cijena je najvažniji broj na stranici, zato je najveća.
+   Rate su odmah ispod, sivo i manje: smiruju roditelja. */
+.cijena {
+  margin: 0;
+  font-family: var(--font-naslov);
+  font-size: 2.5rem;                   /* 40 px */
+  font-weight: 700;
+  line-height: 1.1;
+}
+.rate {
+  margin: 4px 0 24px;
+  color: var(--siva);
+}
+
+/* ----- 6. Popis "što je uključeno" -----
+   Iste kvačice kao u heroju, samo jedna ispod druge. */
+.ukljuceno {
+  list-style: none;                    /* makni točkice */
+  margin: 0 0 32px;
+  padding: 0;                          /* makni uvlačenje */
+}
+.ukljuceno li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--linija);  /* tanka crta između stavki */
+}
+.ukljuceno li:last-child {
+  border-bottom: none;                 /* zadnja stavka bez crte */
+}
+.ukljuceno li::before {
+  content: "✓";                        /* CSS dodaje kvačicu ispred teksta */
+  margin-right: 8px;
+  font-weight: 700;
+  color: var(--limeta-tamna);
+}
+
+/* ----- 7. Gumb u kartici -----
+   margin-top: auto gura gumb na dno kartice (radi zbog flexa gore),
+   pa su gumbi u obje kartice u istoj liniji.
+   text-align: center centrira tekst jer je gumb sad širok kao kartica. */
+.kartica .btn {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* ----- 8. Tablica dodatnih usluga ----- */
+.tablica-cijena {
+  width: 100%;
+  max-width: 600px;                    /* tablica ne treba cijelu širinu */
+  border-collapse: collapse;           /* spoji obrube ćelija u jednu crtu */
+}
+.tablica-cijena caption {
+  text-align: left;                    /* naslov tablice lijevo, ne centrirano */
+  margin-bottom: 12px;
+  font-family: var(--font-naslov);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.tablica-cijena th,
+.tablica-cijena td {
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--linija);
+}
+.tablica-cijena th {
+  font-size: 0.875rem;
+  color: var(--siva);
+  font-weight: 600;
+}
+/* drugi stupac (cijene) poravnat desno, da se brojke lijepo slažu */
+.tablica-cijena th:last-child,
+.tablica-cijena td:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+
+/* ----- 9. Plaćanje na rate ----- */
+.rate-info h2 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+.rate-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 600px;
+}
+.rate-info li {
+  padding: 8px 0 8px 28px;
+  position: relative;                  /* da se broj/kvačica može smjestiti lijevo */
+}
+.rate-info li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--limeta-tamna);
+}
+
+/* =========================================================
+   STRANICA INSTRUKTORI I VOZILA
+   ========================================================= */
+
+/* ----- 1. Sekcije: ista širina i poravnanje kao na Cijenama ----- */
+.tim,
+.vozila {
+  max-width: var(--sirina);
+  margin: 0 auto;
+  padding: 48px 16px 0;
+}
+.vozila {
+  padding-bottom: 64px;                /* zadnja sekcija: razmak prije footera */
+}
+.tim h2,
+.vozila h2 {
+  margin: 0 0 24px;
+  font-size: 1.75rem;
+}
+
+/* ----- 2. Mreža: ista za instruktore i vozila -----
+   Svaki element najmanje 220 px; koliko stane u red, toliko stupaca.
+   Računalo: 4 instruktora u redu. Tablet: 2. Mobitel: 1. */
+.mreza {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* ----- 3. Sve slike u mreži -----
+   Problem: fotografije imaju različite dimenzije, pa bi mreža bila neravna.
+   aspect-ratio: svaka slika dobije isti omjer (4:5 je uspravni portret).
+   object-fit: cover: slika ispuni okvir i izreže višak, BEZ razvlačenja. */
+.mreza img {
+  display: block;                      /* makni mali razmak ispod slike */
+  width: 100%;                         /* široka kao njezin stupac */
+  height: auto;
+  aspect-ratio: 4 / 5;                 /* uspravni okvir za lica */
+  object-fit: cover;                   /* ispuni okvir bez razvlačenja */
+  border-radius: var(--radius);
+  background: var(--svijetla);         /* vidi se dok se slika učitava */
+}
+
+/* vozila su vodoravna, pa dobivaju širi omjer od instruktora */
+.vozila .mreza img {
+  aspect-ratio: 3 / 2;
+}
+
+/* ----- 4. Kartica instruktora ----- */
+.osoba h3 {
+  margin: 16px 0 4px;
+  font-size: 1.25rem;
+}
+.uloga {
+  margin: 0 0 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--limeta-tamna);          /* tamna zelena: čitljivo na bijelom */
+}
+.osoba p {
+  margin-top: 0;
+  color: var(--siva);
+}
+.osoba .uloga {
+  color: var(--limeta-tamna);          /* pravilo .osoba p bi inače obojilo i ulogu u sivo */
+}
+
+/* ----- 5. Vozila: slika s opisom ispod ----- */
+.vozila figure {
+  margin: 0;                           /* figure ima vlastitu marginu od preglednika: makni je */
+}
+.vozila figcaption {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* mobitel: instruktori po 2 u redu, manje skrolanja */
+@media (max-width: 700px) {
+  .tim .mreza { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
+
+/* =========================================================
+   STRANICA UPIS
+   ========================================================= */
+
+/* ----- 1. Raspored: obrazac lijevo (širi), kutija desno -----
+   auto-fit: na mobitelu kutija sama ode ispod obrasca. */
+.upis {
+  max-width: var(--sirina);
+  margin: 0 auto;
+  padding: 48px 16px 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: start;                  /* kutija ne rasteže do visine obrasca */
+}
+
+/* ----- 2. Obrazac: polja jedno ispod drugoga ----- */
+.obrazac {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 32px;
+  background: var(--bijela);
+  border: 1px solid var(--linija);
+  border-radius: var(--radius);
+}
+.obrazac label {
+  margin-top: 12px;
+  font-weight: 600;
+}
+.neobavezno {
+  font-weight: 400;
+  color: var(--siva);
+}
+
+/* ----- 3. Polja za upis -----
+   font: inherit: polje koristi isti font kao stranica (16 px, pa iPhone ne zumira).
+   min-height 48 px: dovoljno veliko za prst. */
+.obrazac input[type="text"],
+.obrazac input[type="tel"],
+.obrazac input[type="email"],
+.obrazac textarea {
+  font: inherit;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #8c96a3;           /* dovoljno taman rub da se polje vidi */
+  border-radius: 8px;
+}
+/* polje u kojem je kursor: zeleni obrub */
+.obrazac input:focus-visible,
+.obrazac textarea:focus-visible {
+  outline: 3px solid var(--limeta);
+  outline-offset: 1px;
+  border-color: var(--asfalt);
+}
+
+/* ----- 4. Kategorija (radio gumbi) ----- */
+.izbor {
+  margin: 12px 0 0;
+  padding: 0;
+  border: 0;                           /* makni okvir koji fieldset ima sam po sebi */
+}
+.izbor legend {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.izbor label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.izbor input,
+.privola input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--limeta-tamna);   /* boja kvačice i radio gumba */
+}
+
+/* ----- 5. Privola: kućica lijevo, tekst desno ----- */
+.obrazac .privola {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--siva);
+}
+.privola input {
+  flex-shrink: 0;                      /* kućica se ne smanjuje kad je tekst dugačak */
+  margin-top: 2px;
+}
+
+/* skriveno polje protiv spama */
+.skriveno {
+  display: none;
+}
+
+/* gumb za slanje: preko cijele širine obrasca */
+.obrazac .btn {
+  margin-top: 20px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ----- 6. Kutija "Što slijedi" ----- */
+.sto-slijedi {
+  padding: 32px;
+  background: var(--asfalt);           /* tamna kutija: limeta na tamnom je dozvoljena */
+  color: var(--bijela);
+  border-radius: var(--radius);
+}
+.sto-slijedi h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+}
+.sto-slijedi ol {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+.sto-slijedi li {
+  margin-bottom: 10px;
+}
+.sto-slijedi li::marker {
+  color: var(--limeta);                /* brojevi 1, 2, 3 u limeti */
+  font-weight: 700;
+}
+.sto-slijedi a {
+  color: var(--limeta);                /* link na tamnom: limeta, kontrast 9,5:1 */
+  font-weight: 600;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+/* tamna podloga, tekst poravnat s logom u headeru (isti calc trik) */
+.podnozje {
+  background: var(--asfalt);
+  color: #c9d1db;                      /* svijetlosiva: mekša od čiste bijele */
+  padding: 48px max(16px, calc((100% - var(--sirina)) / 2 + 16px)) 24px;
+  font-size: 0.9375rem;
+}
+
+/* stupci: 4 na računalu, 2 na tabletu, 1 na mobitelu (auto-fit) */
+.podnozje-stupci {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* naslovi stupaca */
+.podnozje h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: var(--bijela);
+}
+
+.podnozje p {
+  margin: 0 0 8px;
+}
+
+/* ime brenda u prvom stupcu */
+.podnozje-logo {
+  font-family: var(--font-naslov);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bijela);
+}
+
+/* linkovi: svijetli, na hover limeta (limeta na tamnom = dozvoljeno) */
+.podnozje a {
+  color: #c9d1db;
+  text-decoration: none;
+}
+.podnozje a:hover {
+  color: var(--limeta);
+  text-decoration: underline;
+}
+
+/* popis linkova bez točkica */
+.podnozje ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.podnozje li {
+  margin-bottom: 8px;
+}
+
+/* donji red: tanka crta iznad, manja slova */
+.podnozje-dno {
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid #344154;
+  font-size: 0.8125rem;
+  color: #8f9bab;
+}
+
+/* =========================================================
+   STRANICA POLITIKA PRIVATNOSTI (i ostali dugi tekstovi)
+   ========================================================= */
+
+/* uski stupac teksta: dugi tekst se lakše čita kad redak nije preširok */
+.pravno {
+  max-width: var(--sirina);
+  margin: 0 auto;
+  padding: 48px 16px 64px;
+}
+.pravno > * {
+  max-width: 70ch;                     /* najviše ~70 znakova u retku */
+}
+.pravno h2 {
+  margin: 40px 0 12px;
+  font-size: 1.25rem;
+}
+.pravno h2:first-child {
+  margin-top: 0;                       /* prvi naslov bez razmaka iznad */
+}
+.pravno p,
+.pravno li {
+  color: var(--asfalt);
+}
+.pravno ul {
+  padding-left: 20px;
+}
+.pravno li {
+  margin-bottom: 6px;
+}
+
+/* =========================================================
+   STRANICA KONTAKT
+   ========================================================= */
+
+/* ----- 1. Sve sekcije: ista širina i poravnanje ----- */
+.kontakt-nacini,
+.lokacije,
+.faq,
+.poziv {
+  max-width: var(--sirina);
+  margin: 0 auto;
+  padding: 48px 16px 0;
+}
+
+/* naslov vidljiv samo čitačima zaslona */
+.vizualno-skriveno {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ----- 2. Kartice s načinima kontakta (kartica i .btn već postoje) ----- */
+.kontakt-nacini .kartica h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+.kontakt-nacini .kartica p {
+  margin: 0 0 20px;
+  color: var(--siva);
+}
+
+/* ----- 3. Lokacije: tekst lijevo, karta desno (na mobitelu jedno ispod drugog) ----- */
+.lokacije {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+.lokacije h2 {
+  margin: 0 0 16px;
+  font-size: 1.75rem;
+}
+.lokacije h3 {
+  margin: 16px 0 4px;
+  font-size: 1.0625rem;
+}
+.lokacije p {
+  margin: 0 0 8px;
+}
+.napomena {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--svijetla);
+  border-left: 4px solid var(--limeta-tamna);  /* zelena crta lijevo ističe napomenu */
+  border-radius: 0 8px 8px 0;
+}
+
+/* ----- 4. Česta pitanja: otvaraju se klikom (details/summary) ----- */
+.faq h2 {
+  margin: 0 0 16px;
+  font-size: 1.75rem;
+}
+.faq details {
+  max-width: 70ch;
+  border-bottom: 1px solid var(--linija);
+  padding: 16px 0;
+}
+.faq summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.faq details p {
+  margin: 12px 0 0;
+  color: var(--siva);
+}
+
+/* ----- 5. Poziv na kraju: tamna kutija s limeta gumbom ----- */
+.poziv {
+  margin-top: 48px;
+  margin-bottom: 64px;
+  padding: 40px 24px;
+  width: calc(100% - 32px);              /* na mobitelu 16 px od ruba */
+  max-width: calc(var(--sirina) - 32px); /* na računalu široka kao sadržaj */
+  text-align: center;
+  background: var(--asfalt);
+  color: var(--bijela);
+  border-radius: var(--radius);
+}
+.poziv h2 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+}
+.poziv p {
+  margin: 0 0 20px;
+  color: #c9d1db;
+}
+
+/* =========================================================
+   GUMBI: hover i fokus (tipkovnica)
+   ========================================================= */
+/* glavni gumb: malo tamnija limeta kad se prijeđe mišem */
+.btn:hover {
+  background-color: #00c965;
+}
+/* sekundarni gumb zadržava svoj hover (tamna podloga) */
+.btn-obrub:hover {
+  background: var(--asfalt);
+  color: var(--bijela);
+}
+/* vidljiv obrub kad se do gumba dođe tipkom Tab */
+.btn:focus-visible {
+  outline: 3px solid var(--limeta-tamna);  /* na svijetloj podlozi */
+  outline-offset: 3px;
+}
+nav a:focus-visible,
+.podnozje a:focus-visible {
+  outline: 3px solid var(--limeta);        /* na tamnoj podlozi: limeta je vidljiva */
+  outline-offset: 3px;
+}
+/* link na Google karte (kontakt) */
+.karta-link {
+  padding: 32px;
+  background: var(--svijetla);
+  border-radius: var(--radius);
+}
+.karta-link p {
+  margin: 0 0 16px;
+}
+
+/* footer logo: znak i ime u istom redu */
+.podnozje-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

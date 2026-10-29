@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt – Zeleni Val, autoškola, Rijeka</title>
+    <meta
+      name="description"
+      content="Kontakt informacije za autoškolu Zeleni Val u Rijeci."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+    <!-- favicon: ikona u kartici preglednika -->
+    <link rel="icon" href="slike/zeleni-val-znak.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"><img src="slike/zeleni-val-znak.svg" alt="" width="36" height="36"> Zeleni Val</a>
+      <nav>
+        <button
+          class="hamburger"
+          aria-label="Otvori izbornik"
+          aria-expanded="false"
+          aria-controls="izbornik"
+        >
+          ☰
+        </button>
+       <ul id="izbornik">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="cijene.html">Cijene</a></li>
+          <li><a href="instruktori.html">Instruktori i vozila</a></li>
+           <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="upis.html" class="btn">Upiši se</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+
+<main>
+      <!-- MALI HERO -->
+      <section class="hero hero-mala">
+        <p class="oznaka">Javi se kako ti je najlakše</p>
+        <h1>Kontakt</h1>
+        <p class="hero-tekst">Najbrže nas dobiješ na WhatsApp ili telefon. Ured je u centru Rijeke, a poligon nadomak grada.</p>
+      </section>
+
+      <!-- NAČINI KONTAKTA: 3 kartice, najbrži prvi -->
+      <section class="kontakt-nacini">
+        <h2 class="vizualno-skriveno">Načini kontakta</h2>
+        <div class="kartice">
+          <article class="kartica">
+            <h3>WhatsApp</h3>
+            <p>Pošalji poruku, može i sa slikom ili pitanjem. Odgovaramo isti dan.</p>
+            <a href="https://wa.me/38551123456" class="btn">Pošalji poruku</a>
+          </article>
+          <article class="kartica">
+            <h3>Telefon</h3>
+            <p>Pon–pet od 9 do 17 h. Ako ne stignemo odgovoriti, zovemo natrag.</p>
+            <a href="tel:+38551123456" class="btn btn-obrub">051 123 456</a>
+          </article>
+          <article class="kartica">
+            <h3>E-mail</h3>
+            <p>Za dokumente, račune i sve što nije hitno.</p>
+            <a href="mailto:info@zelenival.hr" class="btn btn-obrub">info@zelenival.hr</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- LOKACIJE: ured i poligon + karta -->
+      <section class="lokacije">
+        <div class="lokacije-tekst">
+          <h2>Gdje smo</h2>
+          <h3>Ured i teorija</h3>
+          <p>Zagrebačka 10, 51000 Rijeka<br>Pon–pet: 9:00–17:00 h</p>
+          <h3>Poligon</h3>
+          <p>Zagrebačka 2, Rijeka<br>Vožnja po dogovoru s instruktorom</p>
+          <p class="napomena">Vožnju možemo započeti i blizu tvoje kuće ili škole, dogovori s instruktorom.</p>
+        </div>
+        <!-- Umjesto ugrađene karte: link na Google karte.
+             Karta u iframeu postavlja kolačiće (treba privola), a link ne. Usput je stranica brža. -->
+        <div class="karta-link">
+          <p>Ured je u centru Rijeke, Zagrebačka 10.</p>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Zagreba%C4%8Dka+10%2C+51000+Rijeka" class="btn btn-obrub" target="_blank" rel="noopener">Otvori u Google kartama</a>
+        </div>
+      </section>
+
+      <!-- ČESTA PITANJA: ono što Dario stalno čuje -->
+      <section class="faq">
+        <h2>Česta pitanja</h2>
+        <details>
+          <summary>Koliko košta sve skupa?</summary>
+          <p>B kategorija 1.100 €, motor (A2) 900 €, u što je uključeno sve do vozačke. Detalji su na stranici <a href="cijene.html">Cijene</a>.</p>
+        </details>
+        <details>
+          <summary>Može li se plaćati na rate?</summary>
+          <p>Može. B kategorija u 4 jednake rate, motor u 3. Prvu ratu plaćaš pri upisu.</p>
+        </details>
+        <details>
+          <summary>Koliko brzo mogu položiti?</summary>
+          <p> 2–3 mjeseca od upisa, ovisno o terminima ispita.</p>
+        </details>
+        <details>
+          <summary>Gdje je poligon?</summary>
+          <p>Zagrebačka 2, Rijeka<br>Vožnja po dogovoru s instruktorom</p>
+        </details>
+        <details>
+          <summary>Može li se voziti blizu kuće?</summary>
+          <p>Da, početak vožnje možemo dogovoriti blizu tvoje kuće ili škole.</p>
+        </details>
+      </section>
+
+      <!-- POZIV NA KRAJU: tko je odlučio, ide na upis -->
+      <section class="poziv">
+        <h2>Spreman/spremna za upis?</h2>
+        <p>Nova grupa kreće 2. 12. Prijava traje 2 minute.</p>
+        <a href="upis.html" class="btn">Upiši se</a>
+      </section>
+    </main>
+
+   <footer class="podnozje">
+  <div class="podnozje-stupci">
+
+    <!-- 1. stupac: tko smo -->
+    <div>
+      <p class="podnozje-logo"><img src="slike/zeleni-val-znak.svg" alt="" width="32" height="32"> Zeleni Val</p>
+      <p>Autoškola u Rijeci za B kategoriju i motor. Jasna cijena, plaćanje na rate, nova grupa svaki mjesec.</p>
+    </div>
+
+    <!-- 2. stupac: kontakt (svi linkovi klikabilni na mobitelu) -->
+    <div>
+      <h2>Kontakt</h2>
+      <p><a href="tel:+38551123456">051 123 456</a></p>
+      <p><a href="https://wa.me/38551123456">WhatsApp</a></p>
+      <p><a href="mailto:info@zelenival.hr">info@zelenival.hr</a></p>
+    </div>
+
+    <!-- 3. stupac: gdje i kada -->
+    <div>
+      <h2>Ured</h2>
+      <p>Zagrebačka 10<br>51000 Rijeka</p>
+      <p>Pon–pet: 9:00–17:00 h</p>
+    </div>
+
+    <!-- 4. stupac: linkovi -->
+    <div>
+      <h2>Stranice</h2>
+      <ul>
+        <li><a href="cijene.html">Cijene</a></li>
+        <li><a href="instruktori.html">Instruktori i vozila</a></li>
+        <li><a href="upis.html">Upiši se</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="privatnost.html">Politika privatnosti</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- donji red: podaci o tvrtki -->
+  <p class="podnozje-dno">© 2026 Autoškola Zeleni Val · vl. Dario Perić · OIB: 12345678901</p>
+</footer>
+    <script src="script.js"></script>
+  </body>
+</html>

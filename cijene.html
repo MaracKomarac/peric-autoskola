@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cijene – Zeleni Val, autoškola, Rijeka</title>
+    <meta
+      name="description"
+      content="Cjenik autoškole Zeleni Val u Rijeci. Cijene za vozački ispit i dodatne sate vožnje za B kategoriju i motor."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon: ikona u kartici preglednika -->
+    <link rel="icon" href="slike/zeleni-val-znak.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"><img src="slike/zeleni-val-znak.svg" alt="" width="36" height="36"> Zeleni Val</a>
+      <nav>
+        <button
+          class="hamburger"
+          aria-label="Otvori izbornik"
+          aria-expanded="false"
+          aria-controls="izbornik"
+        >
+          ☰
+        </button>
+        <ul id="izbornik">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="cijene.html" aria-current="page">Cijene</a></li>
+          <li><a href="instruktori.html">Instruktori i vozila</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="upis.html" class="btn">Upiši se</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-mala">
+     <p class="oznaka">Cjenik 2026.</p>
+    <h1>Cijene</h1>
+    <p class="hero-tekst">Jedna cijena, bez iznenađenja. U cijenu je uključeno sve do vozačke.</p>
+    </section>
+
+      <section class="paketi">
+        <div class="kartice">
+          <article class="kartica istaknuta">
+            <p class="oznaka">Najčešći izbor</p>
+            <h2>B kategorija</h2>
+            <p class="cijena">1.100 €</p>
+            <p class="rate">ili 4 rate po 275 €</p>
+            <ul class="ukljuceno">
+              <li>teorija</li>
+              <li>35 sati vožnje</li>
+              <li>prva pomoć</li>
+              <li>ispiti</li>
+            </ul>
+            <a href="upis.html" class="btn">Upiši se</a>
+          </article>
+
+          <article class="kartica">
+            <h2>Motor (A2)</h2>
+            <p class="cijena">900 €</p>
+            <p class="rate">ili 3 rate po 300 €</p>
+            <ul class="ukljuceno">
+              <li>teorija</li>
+              <li>25 sati vožnje</li>
+              <li>prva pomoć</li>
+              <li>ispiti</li>
+            </ul>
+            <a href="upis.html" class="btn">Upiši se</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="dodatno">
+        <table class="tablica-cijena">
+          
+          <caption>
+            Dodatne usluge
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Usluga</th>
+              <th scope="col">Cijena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dodatni sat vožnje</td>
+              <td>35 €</td>
+            </tr>
+            <tr>
+              <td>Dodatna teorija</td>
+              <td>50 €</td>
+            </tr>
+            <tr>
+              <td>Ponovni izlazak na ispit</td>
+              <td>60 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="rate-info">
+        <h2>Plaćanje na rate</h2>
+        <ul>
+          <li>Platite u 4 jednake rate (B) ili 3 (motor)</li>
+          <li>Prvu ratu plaćate pri upisu</li>
+          <li>Svaku sljedeću u roku od 30 dana</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="podnozje">
+  <div class="podnozje-stupci">
+
+    <!-- 1. stupac: tko smo -->
+    <div>
+      <p class="podnozje-logo"><img src="slike/zeleni-val-znak.svg" alt="" width="32" height="32"> Zeleni Val</p>
+      <p>Autoškola u Rijeci za B kategoriju i motor. Jasna cijena, plaćanje na rate, nova grupa svaki mjesec.</p>
+    </div>
+
+    <!-- 2. stupac: kontakt (svi linkovi klikabilni na mobitelu) -->
+    <div>
+      <h2>Kontakt</h2>
+      <p><a href="tel:+38551123456">051 123 456</a></p>
+      <p><a href="https://wa.me/38551123456">WhatsApp</a></p>
+      <p><a href="mailto:info@zelenival.hr">info@zelenival.hr</a></p>
+    </div>
+
+    <!-- 3. stupac: gdje i kada -->
+    <div>
+      <h2>Ured</h2>
+      <p>Zagrebačka 10<br>51000 Rijeka</p>
+      <p>Pon–pet: 9:00–17:00 h</p>
+    </div>
+
+    <!-- 4. stupac: linkovi -->
+    <div>
+      <h2>Stranice</h2>
+      <ul>
+        <li><a href="cijene.html">Cijene</a></li>
+        <li><a href="instruktori.html">Instruktori i vozila</a></li>
+        <li><a href="upis.html">Upiši se</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="privatnost.html">Politika privatnosti</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- donji red: podaci o tvrtki -->
+  <p class="podnozje-dno">© 2026 Autoškola Zeleni Val · vl. Dario Perić · OIB: [OIB]</p>
+</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
